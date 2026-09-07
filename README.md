@@ -12,7 +12,7 @@ From the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification):
 
 The Model Context Protocol (MCP) harnesses reasoning, planning, and decision-making capabilities of frontier large language models (LLMs) such as Anthropic Claude, Microsoft Copilot, Google Gemini, and OpenAI ChatGPT by reliably connecting autonomous AI agents to application programming interface (API) endpoints exposed by Web applications.
 
-MCP gives LLMs a way to discover, rationalize, and interact with Web applications including mission-critical enterprise resources planning (ERP) software. The business opportunity driving the adoption of LLMs is the automation of repetitive, tedious data entry and reporting tasks using AI agents.  
+MCP gives LLMs a way to discover, rationalize, and interact with Web applications including mission-critical ERP software. The business opportunity driving the adoption of LLMs is the automation of repetitive, tedious data entry and reporting tasks using AI agents.  
 
 MCP is today’s universal standard for connecting AI agents to APIs. Any API that is documented according to the OAS (formerly known as the Swagger Specification) can be transformed automatically into functional MCP servers that expose the API as a tool to LLM Applications such as Claude Desktop. Transformation is done using popular MCP generator services including Postman, Speakeasy Gram, liblab, Prefect FastMCP, and Stainless. Self-hosted generators such as the open-source openapi-mcp-generator are also available.
 
