@@ -26,4 +26,4 @@ If you've identified a mismatch between the behavior of any API and these descri
 
 ## License
 
-github/GMXAuto is licensed under the [GNU Affero General Public License v3.0](https://github.com/geoprise/GMXAuto/blob/main/LICENSE.md)
+github/GMXAuto is licensed under the [GNU Affero General Public License v3.0](https://github.com/geoprise/GMXAuto/blob/main/LICENSE)
