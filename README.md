@@ -28,7 +28,7 @@ As of Version 11.3.0 release, this description is considered **stable** and gene
 
 Each OpenAPI document is available in **bundled** format.
 
-The bundled descriptions are single file artifacts that make usages of OpenAPI **components** for reuse and portability. This is the preferred way of interacting with Geoprise GM-X Auto OpenAPI descriptions.
+The bundled descriptions are single file artifacts that are assemblies of OpenAPI **components** for reuse and portability. This is the preferred way of interacting with Geoprise GM-X Auto OpenAPI descriptions.
 
 ## Contributing
 
