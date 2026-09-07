@@ -1,6 +1,6 @@
 # GMXAuto
 
-This repository contains [OpenAPI](https://www.openapis.org/) descriptions for the [Geoprise GM-X Auto OpenAPI Bridge](https://github.com/geoprise/GMXAuto) to fully connect the GM-X Enterprise Resources Planning (ERP) application and agentic artificial intelligence (AI).
+This repository contains [OpenAPI](https://www.openapis.org/) descriptions for a reference implementation of the [Geoprise GM-X Auto OpenAPI Bridge](https://github.com/geoprise/GMXAuto) to fully connect the GM-X Enterprise Resources Planning (ERP) application and agentic artificial intelligence (AI).
 
 ## What is OpenAPI?
 
