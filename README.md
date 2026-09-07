@@ -34,8 +34,7 @@ The bundled descriptions are single file artifacts that make usages of OpenAPI *
 
 Because this description is used across the entire Geoprise API development experience, we don't currently accept pull requests that directly modify the description. This repository is automatically kept up to date with the description used to validate Geoprise GM-X Auto API requests.
 
-If you've identified a mismatch between the behavior of any API and these descriptions, or found an issue with the format of a schema, [please open an issue.](https://github.com/github/GMXAuto/issues/new?template=schema-inaccuracy.md)
-
+If you've identified a mismatch between the behavior of any API and these descriptions, or found an issue with the format of a schema, [please open an issue.](mailto:support@geoprise.com)
 ## License
 
 github/GMXAuto is licensed under the [GNU Affero General Public License v3.0](https://github.com/geoprise/GMXAuto/blob/main/LICENSE)
