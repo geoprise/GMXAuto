@@ -26,9 +26,9 @@ As of Version 11.3.0 release, this description is considered **stable** and gene
 
 ## Description Formats
 
-Each OpenAPI document is available in **bundled** format. All of them are located in the [**models**](https://github.com/geoprise/GMXAuto/models) folder.
+Each OpenAPI document is available in **bundled** format. All of them are located in the [**models**](https://github.com/geoprise/GMXAuto/tree/main/models) folder.
 
-The bundled descriptions are single file artifacts that are assemblies of OpenAPI **components** for reuse and portability. This is the preferred way of interacting with Geoprise GM-X Auto OpenAPI descriptions.
+The bundled descriptions are single file artifacts comprising assemblies of OpenAPI **components** to promote useability and portability. This is the preferred way of interacting with Geoprise GM-X Auto OpenAPI descriptions.
 
 ## Contributing
 
