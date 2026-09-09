@@ -18,7 +18,7 @@ MCP is today’s universal standard for connecting AI agents to APIs. Any API th
 
 Each tool visible and available to an LLM Application has a title, description, and input schema which AI agents can discover and interpret to create natural-language requests. The MCP server converts those requests into API calls which activate specific Web application functions that generate and return the results to the AI agent.
 
-The GM-X Auto OpenAPI Bridge exposes every one of nearly 3,900 GM-X ERP functions, screens, and reports to MCP servers through 453 OAS-compatible APIs requiring no proprietary middleware or custom-coded wrappers.  
+The GM-X Auto OpenAPI Bridge exposes every one of nearly 3,900 GM-X ERP functions, screens, and reports to MCP servers through 452 OAS-compatible APIs requiring no proprietary middleware or custom-coded wrappers.  
 
 ## Project Status
 
