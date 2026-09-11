@@ -1,0 +1,3699 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "The Navigation Button API for the Geoprise GM-X Auto Enterprise Resources Planning (ERP) Application",
+    "summary": "The GM-X Navigation Button manager",
+    "description": "The Navigation Button API provides buttons for activating tasks from the navigation bar.",
+    "termsOfService": "https://geoprise.com/termsfeed/terms-and-conditions/",
+    "contact": {
+      "name": "GM-X Auto Support",
+      "url": "https://geoprise.com/contact-us/",
+      "email": "support@geoprise.com"
+    },
+    "version": "11.3.0"
+  },
+  "servers": [
+    {
+      "url": "https://system.api.example.com/gmx",
+      "description": "Production server for live traffic using internal, RADIUS, LDAP or SSL authentication"
+    },
+    {
+      "url": "https://api.example.com/gmx",
+      "description": "Production server for live traffic using AWS ALB authentication"
+    },
+    {
+      "url": "https://staging-api.example.com/gmx",
+      "description": "Staging environment for final checks using internal, RADIUS, LDAP or SSL authentication"
+    },
+    {
+      "url": "https://qa-api.example.com/gmx",
+      "description": "Test environment using internal, RADIUS, LDAP or SSL authentication"
+    },
+    {
+      "url": "http://localhost:3000/gmx",
+      "description": "Local development server using internal, RADIUS, LDAP or SSL authentication"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Navigation Buttons"
+    }
+  ],
+  "paths": {
+    "/menu/mnu_nav_button(add3).php": {
+      "get": {
+        "summary": "Add Navigation Button",
+        "description": "Add Navigation Button record into the Geoprise GM-X Auto ERP Application",
+        "operationId": "mnu_nav_button(add3)_callFunction",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          }
+        ],
+        "responses": {
+          "302": {
+            "oneOf": [
+              {
+                "description": "Found. Redirect to URL for displaying the  form.",
+                "headers": {
+                  "Location": {
+                    "description": "The target URL for the redirect.",
+                    "schema": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://api.example.com/gmx/"
+                    }
+                  }
+                },
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      {
+                        "type": "object",
+                        "required": [
+                          "",
+                          "actbar",
+                          "menubar", 
+                          "params"         
+                        ],
+                        "items": {               
+                          "$ref": "./#/paths/menu~1mnu_nav_button(add3).php/get/responses/200/content/application~1json/schema/items",
+                        }
+                      }
+                    }
+                  }
+                },
+              },
+              {
+                "description": "Found. Redirect to URL for redisplaying the List Navigation Buttons form after returning from the  form.",
+                "headers": {
+                  "Location": {
+                    "description": "The target URL for the redirect.",
+                    "schema": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://api.example.com/gmx/menu/mnu_nav_button(list2).php"
+                    }
+                  }
+                },
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      {
+                        "type": "object",
+                        "required": [
+                          "mnu_nav_button",
+                          "actbar",
+                          "menubar", 
+                          "infomsg", 
+                          "params"         
+                        ],
+                        "items": {               
+                          "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items",
+                          "infomsg": {
+                            "line": {
+                              "enum": [
+                                "0 records were inserted into MNU_NAV_BUTTON",
+                                "1 records were inserted into MNU_NAV_BUTTON",
+                                {
+                                  "$ref": "#/components/schemas/infomsg",
+                                }
+                              ]
+                            }
+                          },
+                          "errmsg": {
+                            "line": {
+                              "enum": [
+                                {
+                                  "$ref": "#/components/schemas/errmsg",
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }  
+    },
+    "/menu/mnu_nav_button(add3)a.php": {
+      "get": {
+        "summary": "Add Navigation Button",
+        "description": "Add Navigation Button record into the Geoprise GM-X Auto ERP Application",
+        "operationId": "mnu_nav_button(add3)a_callFunction",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          }
+        ],
+        "responses": {
+          "302": {
+            "oneOf": [
+              {
+                "description": "Found. Redirect to URL for displaying the  form.",
+                "headers": {
+                  "Location": {
+                    "description": "The target URL for the redirect.",
+                    "schema": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://api.example.com/gmx/"
+                    }
+                  }
+                },
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      {
+                        "type": "object",
+                        "required": [
+                          "",
+                          "actbar",
+                          "menubar", 
+                          "params"         
+                        ],
+                        "items": {               
+                          "$ref": "./#/paths/menu~1mnu_nav_button(add3)a.php/get/responses/200/content/application~1json/schema/items",
+                        }
+                      }
+                    }
+                  }
+                },
+              },
+              {
+                "description": "Found. Redirect to URL for redisplaying the List Navigation Button Parents form after returning from the  form.",
+                "headers": {
+                  "Location": {
+                    "description": "The target URL for the redirect.",
+                    "schema": {
+                      "type": "string",
+                      "format": "uri",
+                      "example": "https://api.example.com/gmx/menu/mnu_nav_button(list2)a.php"
+                    }
+                  }
+                },
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      {
+                        "type": "object",
+                        "required": [
+                          "mnu_nav_button",
+                          "actbar",
+                          "menubar", 
+                          "infomsg", 
+                          "params"         
+                        ],
+                        "items": {               
+                          "$ref": "#/paths/menu~1mnu_nav_button(list2)a.php/get/responses/200/content/application~1json/schema/items",
+                          "infomsg": {
+                            "line": {
+                              "enum": [
+                                "0 records were inserted into MNU_NAV_BUTTON",
+                                "1 records were inserted into MNU_NAV_BUTTON",
+                                {
+                                  "$ref": "#/components/schemas/infomsg",
+                                }
+                              ]
+                            }
+                          },
+                          "errmsg": {
+                            "line": {
+                              "enum": [
+                                {
+                                  "$ref": "#/components/schemas/errmsg",
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }  
+    },
+    "/menu/mnu_nav_button(del2).php": {
+      "get": {
+        "summary": "Delete Navigation Button",
+        "description": "Geoprise GM-X Auto ERP Application Delete Navigation Button function.",
+        "operationId": "mnu_nav_button(del2)_callFunction",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Found. Redirect to URL for redisplaying the List Navigation Buttons form.",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(list2).php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  {
+                    "type": "object",
+                    "required": [
+                      "mnu_nav_button",
+                      "actbar",
+                      "menubar", 
+                      "infomsg", 
+                      "params"         
+                    ],
+                    "items": {               
+                      "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items",
+                      "infomsg": {
+                        "line": {
+                          "enum": [
+                            "1 records were deleted from MNU_NAV_BUTTON",
+                            {
+                              "$ref": "#/components/schemas/infomsg",
+                            }
+                          ]
+                        }
+                      },
+                      "errmsg": {
+                        "line": {
+                          "enum": [
+                            {
+                              "$ref": "#/components/schemas/errmsg",
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }  
+    },
+    "/menu/mnu_nav_button(link1).php": {
+      "get": {
+        "summary": "Maintain Navigation Buttons (2)",
+        "description": "Maintain Navigation Buttons (2) records from the Geoprise GM-X Auto ERP Application.",
+        "operationId": "mnu_nav_button(link1)_getForm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/selection"  
+          },
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          },
+          {
+            "$ref": "#/components/parameters/action" 
+          },
+          {
+            "$ref": "#/components/parameters/scrolling" 
+          },
+          {
+            "$ref": "#/components/parameters/item" 
+          },
+          {
+            "$ref": "#/components/parameters/pagesize" 
+          },
+          {
+            "$ref": "#/components/parameters/pagination" 
+          },
+          {
+            "$ref": "#/components/parameters/page"  
+          },
+          {
+            "name": "orderby",  
+            "in": "query",  
+            "description": "instruction to order the rows the query returns by the values of a specific column, excluding selectbox and NOSORT columns (toggling between ascending and descending sequence)",  
+            "schema": {
+              "type": "string",  
+              "enum": [
+                {
+                  "$ref": "#/paths/menu~1mnu_nav_button(link1).php/get/responses/200/content/application~1json/schema/items/mnu_task_snr/items/properties/mnu_nav_button"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the Maintain Navigation Buttons (2) form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    {
+                      "mnu_task_snr",
+                      "actbar": [
+                        "allOf": [
+                          {
+                            "submitBtn",
+                            "submitstay",
+                            "submitnext",
+                            "reset",
+                            "quit"
+                          }
+                        ]
+                      ],
+                      "menubar",
+                      "pagination",
+                      "params"
+                    }
+                  ],
+                  "items": {
+                    "mnu_task_snr": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "task_id": {
+                            "type": "string",
+                            "description": "Parent Task"
+                          },
+                          "task_name": {
+                            "type": "string",
+                            "description": "Parent Name"
+                          },
+                          "rdc_selection_lock": {
+                            "$ref": "#/components/schemas/rdc_selection_lock"
+                          },
+                          "mnu_nav_button": {
+                            [
+                              {
+                                "selectbox": {
+                                  "$ref": "#/components/schemas/select/additionalProperties",
+                                  "description": "Select"
+                                },
+                                "task_id_jnr": {
+                                  "type": "string",
+                                  "description": "Button Id"
+                                },
+                                "task_name_jnr": {
+                                  "type": "string",
+                                  "description": "Task Name"
+                                },
+                                "sort_seq": {
+                                  "type": "string",
+                                  "description": "Seq"
+                                },
+                                "context_preselect": {
+                                  "type": "string",
+                                  "description": "Preselect?"
+                                },
+                                "button_text": {
+                                  "type": "string",
+                                  "description": "Button Text"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "actbar": {
+                      "button": [
+                        {
+                          "@attributes": {
+                            "id": "submitBtn",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and returns to previous screen"
+                          },
+                          "@value": "SUBMIT"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "submitstay",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and displays a fresh copy of this screen"
+                          },
+                          "@value": "SUBMIT+stay"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "submitnext",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and either displays the next available record, if any, or returns to the previous screen"
+                          },
+                          "@value": "SUBMIT+next"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "reset",
+                            "tooltip": "Removes all your search filters, sorting and page settings and displays a fresh copy of this screen"
+                          },
+                          "@value": "RESET"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "quit",
+                            "tooltip": "Returns to previous screen"
+                          },
+                          "@value": "CANCEL"
+                        }
+                      ]
+                    },
+                    "menubar": {
+                      "$ref": "#/components/schemas/MenuBar"
+                    },
+                    "navbar": {
+                      "$ref": "#/components/schemas/NavBar"
+                    },             
+                    "scrolling": {
+                      "scroll": {
+                        "$ref": "#/components/schemas/Item"
+                      }
+                    },
+                    "pagination": {
+                      "page": {
+                        "$ref": "#/components/schemas/Page"
+                      }
+                    },
+                    "params": {
+                      "script": {
+                        "$ref": "#/components/schemas/ScriptURL"                           
+                      },
+                      "script_short": "mnu_nav_button_link1",
+                      "session_name": {
+                        "$ref": "#/components/parameters/session_name"                         
+                      },
+                      "csrf_id": {
+                        "$ref": "#/components/parameters/csrf_id"                          
+                      },                 
+                      "title": "Maintain Navigation Buttons (2)",
+                      "version": "GM-X v11.3.0",
+                      "language": "en",
+                      "project_code": {
+                        "$ref": "#/components/schemas/ProjectCode"                         
+                      },
+                      "image-dir": "../images/",
+                      "pagination_width": {
+                        "$ref": "#/components/schemas/PaginationWidth"                         
+                      },
+                      "scrolling_width": {
+                        "$ref": "#/components/schemas/ScrollingWidth"                          
+                      },
+                      "logged-in-as": {
+                        "$ref": "#/components/schemas/LoggedInAs"                          
+                      },
+                      "logged-in-as-name": {
+                        "$ref": "#/components/schemas/LoggedInAsName"                          
+                      },
+                      "mode": "update",
+                      "taskid": "mnu_nav_button(link1)",
+                      "orderby": {
+                        "type": "string",
+                        "description": "the column by which records are sorted",
+                        "enum": [
+                          {
+                            "$ref": "#/paths/menu~1mnu_nav_button(link1).php/get/responses/200/content/application~1json/schema/items/mnu_task_snr/items/properties/mnu_nav_button"
+                          }        
+                        ]        
+                      },                     
+                      "order": {
+                        "$ref": "#/components/schemas/order"             
+                      }                  
+                    }
+                  }                    
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "summary": "Action bar or navigation bar submission",
+        "description": "Reset form, close form, or navigate to a different form.",
+        "operationId": "mnu_nav_button(link1)_submitForm",       
+        "requestBody": {
+          "description": "Instructions and information needed to process the action bar or navigation bar submission",
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "session_name",
+                  "csrf_id",
+                  "submitBtn",
+                  "submitstay",
+                  "submitnext",
+                  "reset",
+                  "quit",
+                  "task#inner#mnu_task(search)"
+                ],
+                "properties": {
+                  "rdc_selection_lock": {
+                    "$ref": "#/components/schemas/rdc_selection_lock"
+                  },
+                  "select": {
+                    "$ref": "#/components/schemas/select"
+                  },
+                  "session_name": {
+                    "$ref": "#/components/schemas/session_name"
+                  },
+                  "csrf_id": {
+                    "$ref": "#/components/schemas/csrf_id"
+                  },
+                  "submitBtn": {
+                    "$ref": "#/components/schemas/submit"
+                  },
+                  "submitstay": {
+                    "$ref": "#/components/schemas/submitstay"
+                  },
+                  "submitnext": {
+                    "$ref": "#/components/schemas/submitnext"
+                  },
+                  "reset": {
+                    "$ref": "#/components/schemas/reset"
+                  },
+                  "quit": {
+                    "$ref": "#/components/schemas/quitClose"
+                  },
+                  "task#inner#mnu_task(search)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Search"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response containing the current form after resetting it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar",
+                    "params"         
+                  ],
+                  "items": {               
+                    "$ref": "#/paths/menu~1mnu_nav_button(link1).php/get/responses/200/content/application~1json/schema/items",
+                    "errmsg": {
+                      "line": {
+                        "enum": [
+                          "No entries found on MNU_NAV_BUTTON"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found. Redirect to URL for displaying the previous form (if any), re-displaying the current form, or displaying the next form (if any).",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(link1).php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar", 
+                        "pagination", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "./GMXAuto_task.json#/paths/menu~1mnu_task(list1).php.php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",             
+                        "actbar",
+                        "menubar",
+                        "pagination",                   
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(link1).php/get/responses/200/content/application~1json/schema/items",
+                        "infomsg": {
+                          "line": {
+                            "enum": [
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^(100|[1-9][0-9]?) records were inserted into MNU_NAV_BUTTON$",
+                                    "example": "1 records were inserted into MNU_NAV_BUTTON"
+                                  }
+                                }
+                              },
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^(100|[1-9][0-9]?) records were deleted from MNU_NAV_BUTTON$",
+                                    "example": "1 records were deleted from MNU_NAV_BUTTON"
+                                  }
+                                }
+                              },
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^(100|[1-9][0-9]?) records were unchanged in MNU_NAV_BUTTON$",
+                                    "example": "9 records were unchanged in MNU_NAV_BUTTON"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "errmsg": {
+                          "line": {
+                            "enum": [
+                              "No entries found on MNU_NAV_BUTTON",
+                              "No parent has been selected yet",
+                              "Nothing has been selected yet",
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^Primary key (^.{1,64}$) is not complete - check selection\\.$",
+                                    "example": "Primary key (column_id) is not complete - check selection"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "task",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "./GMXAuto_task.json#/paths/menu~1mnu_task(search).php.php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    }
+                  ]
+                }          
+              }
+            }
+          }
+        }        
+      }  
+    },
+    "/menu/mnu_nav_button(list2).php": {
+      "get": {
+        "summary": "List Navigation Buttons",
+        "description": "List Navigation Buttons records from the Geoprise GM-X Auto ERP Application.",
+        "operationId": "mnu_nav_button(list2)_getForm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/selection"  
+          },
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          },
+          {
+            "$ref": "#/components/parameters/action" 
+          },
+          {
+            "$ref": "#/components/parameters/scrolling" 
+          },
+          {
+            "$ref": "#/components/parameters/item" 
+          },
+          {
+            "$ref": "#/components/parameters/pagesize" 
+          },
+          {
+            "$ref": "#/components/parameters/pagination" 
+          },
+          {
+            "$ref": "#/components/parameters/page"  
+          },
+          {
+            "name": "orderby",  
+            "in": "query",  
+            "description": "instruction to order the rows the query returns by the values of a specific column, excluding selectbox and NOSORT columns (toggling between ascending and descending sequence)",  
+            "schema": {
+              "type": "string",  
+              "enum": [
+                {
+                  "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items/mnu_task_snr/items/properties/mnu_nav_button"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the List Navigation Buttons form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "oneOf": [
+                      {
+                        "mnu_task_snr",
+                        "lookup",
+                        "actbar": [
+                          "allOf": [
+                            {
+                              "quicksearch",
+                              "reset",
+                              "quit"
+                            }
+                          ]
+                        ],
+                        "menubar",
+                        "pagination",
+                        "params"
+                      },
+                      {
+                        "mnu_task_snr",
+                        "actbar": [
+                          "allOf": [
+                            {
+                              "reset",
+                              "quit"
+                            }
+                          ]
+                        ],
+                        "menubar",
+                        "pagination",
+                        "params"
+                      }
+                    ]
+                  ],
+                  "items": {
+                    "mnu_task_snr": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "task_id": {
+                            "type": "string",
+                            "description": "Parent Task"
+                          },
+                          "task_name": {
+                            "type": "string",
+                            "description": "Parent Name"
+                          },
+                          "oneOf": [
+                            {
+                              "quicksearch_field": {
+                                "$ref": "#/components/schemas/quicksearch_field"
+                              },
+                              "quicksearch_value": {
+                                "$ref": "#/components/schemas/quicksearch_value"
+                              },
+                              "rdc_selection_lock": {
+                                "$ref": "#/components/schemas/rdc_selection_lock"
+                              }
+                            },
+                            {
+                              "rdc_selection_lock": {
+                                "$ref": "#/components/schemas/rdc_selection_lock"
+                              }
+                            }
+                          ],
+                          "mnu_nav_button": {
+                            [
+                              {
+                                "selectbox": {
+                                  "$ref": "#/components/schemas/select/additionalProperties",
+                                  "description": "Select"
+                                },
+                                "task_id_jnr": {
+                                  "type": "string",
+                                  "description": "Button Id"
+                                },
+                                "task_name_jnr": {
+                                  "type": "string",
+                                  "description": "Task Name"
+                                },
+                                "sort_seq": {
+                                  "type": "string",
+                                  "description": "Seq"
+                                },
+                                "context_preselect": {
+                                  "type": "string",
+                                  "description": "Preselect?"
+                                },
+                                "button_text": {
+                                  "type": "string",
+                                  "description": "Button Text"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "lookup": [
+                      {
+                        "quicksearch_field": {
+                          "option": [
+                            {
+                              "$ref": "#/components/schemas/QuicksearchOption"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "actbar": {
+                      "button": [
+                        {
+                          "@attributes": {
+                            "id": "quicksearch"
+                          },
+                          "@value": "Search"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "reset",
+                            "tooltip": "Removes all your search filters, sorting and page settings and displays a fresh copy of this screen"
+                          },
+                          "@value": "RESET"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "quit",
+                            "tooltip": "Returns to previous screen"
+                          },
+                          "@value": "CLOSE"
+                        }
+                      ]
+                    },
+                    "menubar": {
+                      "$ref": "#/components/schemas/MenuBar"
+                    },
+                    "navbar": {
+                      "$ref": "#/components/schemas/NavBar"
+                    },             
+                    "scrolling": {
+                      "scroll": {
+                        "$ref": "#/components/schemas/Item"
+                      }
+                    },
+                    "pagination": {
+                      "page": {
+                        "$ref": "#/components/schemas/Page"
+                      }
+                    },
+                    "params": {
+                      "script": {
+                        "$ref": "#/components/schemas/ScriptURL"                           
+                      },
+                      "script_short": "mnu_nav_button_list2",
+                      "session_name": {
+                        "$ref": "#/components/parameters/session_name"                         
+                      },
+                      "csrf_id": {
+                        "$ref": "#/components/parameters/csrf_id"                          
+                      },                 
+                      "title": "List Navigation Buttons",
+                      "version": "GM-X v11.3.0",
+                      "language": "en",
+                      "project_code": {
+                        "$ref": "#/components/schemas/ProjectCode"                         
+                      },
+                      "image-dir": "../images/",
+                      "pagination_width": {
+                        "$ref": "#/components/schemas/PaginationWidth"                         
+                      },
+                      "scrolling_width": {
+                        "$ref": "#/components/schemas/ScrollingWidth"                          
+                      },
+                      "logged-in-as": {
+                        "$ref": "#/components/schemas/LoggedInAs"                          
+                      },
+                      "logged-in-as-name": {
+                        "$ref": "#/components/schemas/LoggedInAsName"                          
+                      },
+                      "mode": "list",
+                      "taskid": "mnu_nav_button(list2)",
+                      "orderby": {
+                        "type": "string",
+                        "description": "the column by which records are sorted",
+                        "enum": [
+                          {
+                            "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items/mnu_task_snr/items/properties/mnu_nav_button"
+                          }        
+                        ]        
+                      },                     
+                      "order": {
+                        "$ref": "#/components/schemas/order"             
+                      }                  
+                    }
+                  }                    
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "summary": "Action bar or navigation bar submission",
+        "description": "Reset form, close form, or navigate to a different form.",
+        "operationId": "mnu_nav_button(list2)_submitForm",       
+        "requestBody": {
+          "description": "Instructions and information needed to process the action bar or navigation bar submission",
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "session_name",
+                  "csrf_id",
+                  "oneOf": [
+                    {
+                      "reset",
+                      "quit",
+                      "task#inner#audit_dtl(list)3",
+                      "task#inner#mnu_nav_button(add3)",
+                      "task#inner#mnu_nav_button(del2)",
+                      "task#inner#mnu_nav_button(search)",
+                      "task#inner#mnu_nav_button(upd1)"
+                    },
+                    {
+                      "quicksearch_field",
+                      "quicksearch_value",
+                      "quicksearch",
+                      "reset",
+                      "quit",
+                      "task#inner#audit_dtl(list)3",
+                      "task#inner#mnu_nav_button(add3)",
+                      "task#inner#mnu_nav_button(del2)",
+                      "task#inner#mnu_nav_button(search)",
+                      "task#inner#mnu_nav_button(upd1)"
+                    }
+                  ]        
+                ],
+                "properties": {
+                  "rdc_selection_lock": {
+                    "$ref": "#/components/schemas/rdc_selection_lock"
+                  },
+                  "select": {
+                    "$ref": "#/components/schemas/select"
+                  },
+                  "session_name": {
+                    "$ref": "#/components/schemas/session_name"
+                  },
+                  "csrf_id": {
+                    "$ref": "#/components/schemas/csrf_id"
+                  },
+                  "quicksearch_field": {
+                    "$ref": "#/components/schemas/quicksearch_field"
+                  },
+                  "quicksearch_value": {
+                    "$ref": "#/components/schemas/quicksearch_value"
+                  },
+                  "quicksearch": {
+                    "$ref": "#/components/schemas/quicksearch"
+                  },
+                  "reset": {
+                    "$ref": "#/components/schemas/reset"
+                  },
+                  "quit": {
+                    "$ref": "#/components/schemas/quitClose"
+                  },
+                  "task#inner#audit_dtl(list)3": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Audit Trail"
+                  },
+                  "task#inner#mnu_nav_button(add3)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to New"
+                  },
+                  "task#inner#mnu_nav_button(del2)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Delete"
+                  },
+                  "task#inner#mnu_nav_button(search)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Search"
+                  },
+                  "task#inner#mnu_nav_button(upd1)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Update"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response containing the current form after resetting it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar",
+                    "params"         
+                  ],
+                  "items": {               
+                    "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items",
+                    "errmsg": {
+                      "line": {
+                        "enum": [
+                          "No entries found on MNU_NAV_BUTTON"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found. Redirect to URL for displaying the previous form (if any), re-displaying the current form, or displaying the next form (if any).",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(list2).php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar", 
+                        "pagination", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "./GMXAuto_task.json#/paths/menu~1mnu_task(list1).php.php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",             
+                        "actbar",
+                        "menubar",
+                        "pagination",                   
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items",
+                        "errmsg": {
+                          "line": {
+                            "enum": [
+                              "No entries found on MNU_NAV_BUTTON",
+                              "No parent has been selected yet",
+                              "Nothing has been selected yet",
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^Primary key (^.{1,64}$) is not complete - check selection\\.$",
+                                    "example": "Primary key (column_id) is not complete - check selection"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "audit_dtl",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "./GMXAuto_audit_detail.json#/paths/audit~1audit_dtl_list3.php/get/responses/200/content/application~1json/schema/items",
+                        "errmsg": {
+                          "line": {
+                            "enum": [
+                              "No entries found on AUDIT_TBL_S01"            
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(add3).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(del2).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    }
+                  ]
+                }          
+              }
+            }
+          }
+        }        
+      }  
+    },
+    "/menu/mnu_nav_button(list2)a.php": {
+      "get": {
+        "summary": "List Navigation Button Parents",
+        "description": "List Navigation Button Parents records from the Geoprise GM-X Auto ERP Application.",
+        "operationId": "mnu_nav_button(list2)a_getForm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/selection"  
+          },
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          },
+          {
+            "$ref": "#/components/parameters/action" 
+          },
+          {
+            "$ref": "#/components/parameters/scrolling" 
+          },
+          {
+            "$ref": "#/components/parameters/item" 
+          },
+          {
+            "$ref": "#/components/parameters/pagesize" 
+          },
+          {
+            "$ref": "#/components/parameters/pagination" 
+          },
+          {
+            "$ref": "#/components/parameters/page"  
+          },
+          {
+            "name": "orderby",  
+            "in": "query",  
+            "description": "instruction to order the rows the query returns by the values of a specific column, excluding selectbox and NOSORT columns (toggling between ascending and descending sequence)",  
+            "schema": {
+              "type": "string",  
+              "enum": [
+                {
+                  "$ref": "#/paths/menu~1mnu_nav_button(list2)a.php/get/responses/200/content/application~1json/schema/items/mnu_task_jnr/items/properties/mnu_nav_button"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the List Navigation Button Parents form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "oneOf": [
+                      {
+                        "mnu_task_jnr",
+                        "lookup",
+                        "actbar": [
+                          "allOf": [
+                            {
+                              "quicksearch",
+                              "reset",
+                              "quit"
+                            }
+                          ]
+                        ],
+                        "menubar",
+                        "pagination",
+                        "params"
+                      },
+                      {
+                        "mnu_task_jnr",
+                        "actbar": [
+                          "allOf": [
+                            {
+                              "reset",
+                              "quit"
+                            }
+                          ]
+                        ],
+                        "menubar",
+                        "pagination",
+                        "params"
+                      }
+                    ]
+                  ],
+                  "items": {
+                    "mnu_task_jnr": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "task_id": {
+                            "type": "string",
+                            "description": "Child Task"
+                          },
+                          "task_name": {
+                            "type": "string",
+                            "description": "Child Name"
+                          },
+                          "oneOf": [
+                            {
+                              "quicksearch_field": {
+                                "$ref": "#/components/schemas/quicksearch_field"
+                              },
+                              "quicksearch_value": {
+                                "$ref": "#/components/schemas/quicksearch_value"
+                              },
+                              "rdc_selection_lock": {
+                                "$ref": "#/components/schemas/rdc_selection_lock"
+                              }
+                            },
+                            {
+                              "rdc_selection_lock": {
+                                "$ref": "#/components/schemas/rdc_selection_lock"
+                              }
+                            }
+                          ],
+                          "mnu_nav_button": {
+                            [
+                              {
+                                "selectbox": {
+                                  "$ref": "#/components/schemas/select/additionalProperties",
+                                  "description": "Select"
+                                },
+                                "task_id_snr": {
+                                  "type": "string",
+                                  "description": "Parent Task"
+                                },
+                                "task_name_snr": {
+                                  "type": "string",
+                                  "description": "Parent Name"
+                                },
+                                "sort_seq": {
+                                  "type": "string",
+                                  "description": "Seq"
+                                },
+                                "context_preselect": {
+                                  "type": "string",
+                                  "description": "Preselect?"
+                                },
+                                "button_text": {
+                                  "type": "string",
+                                  "description": "Button Text"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "lookup": [
+                      {
+                        "quicksearch_field": {
+                          "option": [
+                            {
+                              "$ref": "#/components/schemas/QuicksearchOption"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "actbar": {
+                      "button": [
+                        {
+                          "@attributes": {
+                            "id": "quicksearch"
+                          },
+                          "@value": "Search"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "reset",
+                            "tooltip": "Removes all your search filters, sorting and page settings and displays a fresh copy of this screen"
+                          },
+                          "@value": "RESET"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "quit",
+                            "tooltip": "Returns to previous screen"
+                          },
+                          "@value": "CLOSE"
+                        }
+                      ]
+                    },
+                    "menubar": {
+                      "$ref": "#/components/schemas/MenuBar"
+                    },
+                    "navbar": {
+                      "$ref": "#/components/schemas/NavBar"
+                    },             
+                    "scrolling": {
+                      "scroll": {
+                        "$ref": "#/components/schemas/Item"
+                      }
+                    },
+                    "pagination": {
+                      "page": {
+                        "$ref": "#/components/schemas/Page"
+                      }
+                    },
+                    "params": {
+                      "script": {
+                        "$ref": "#/components/schemas/ScriptURL"                           
+                      },
+                      "script_short": "mnu_nav_button_list2_a",
+                      "session_name": {
+                        "$ref": "#/components/parameters/session_name"                         
+                      },
+                      "csrf_id": {
+                        "$ref": "#/components/parameters/csrf_id"                          
+                      },                 
+                      "title": "List Navigation Button Parents",
+                      "version": "GM-X v11.3.0",
+                      "language": "en",
+                      "project_code": {
+                        "$ref": "#/components/schemas/ProjectCode"                         
+                      },
+                      "image-dir": "../images/",
+                      "pagination_width": {
+                        "$ref": "#/components/schemas/PaginationWidth"                         
+                      },
+                      "scrolling_width": {
+                        "$ref": "#/components/schemas/ScrollingWidth"                          
+                      },
+                      "logged-in-as": {
+                        "$ref": "#/components/schemas/LoggedInAs"                          
+                      },
+                      "logged-in-as-name": {
+                        "$ref": "#/components/schemas/LoggedInAsName"                          
+                      },
+                      "mode": "list",
+                      "taskid": "mnu_nav_button(list2)a",
+                      "orderby": {
+                        "type": "string",
+                        "description": "the column by which records are sorted",
+                        "enum": [
+                          {
+                            "$ref": "#/paths/menu~1mnu_nav_button(list2)a.php/get/responses/200/content/application~1json/schema/items/mnu_task_jnr/items/properties/mnu_nav_button"
+                          }        
+                        ]        
+                      },                     
+                      "order": {
+                        "$ref": "#/components/schemas/order"             
+                      }                  
+                    }
+                  }                    
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "summary": "Action bar or navigation bar submission",
+        "description": "Reset form, close form, or navigate to a different form.",
+        "operationId": "mnu_nav_button(list2)a_submitForm",       
+        "requestBody": {
+          "description": "Instructions and information needed to process the action bar or navigation bar submission",
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "session_name",
+                  "csrf_id",
+                  "oneOf": [
+                    {
+                      "reset",
+                      "quit",
+                      "task#inner#mnu_nav_button(add3)a",
+                      "task#inner#mnu_nav_button(del2)",
+                      "task#inner#mnu_nav_button(search)",
+                      "task#inner#mnu_nav_button(upd1)"
+                    },
+                    {
+                      "quicksearch_field",
+                      "quicksearch_value",
+                      "quicksearch",
+                      "reset",
+                      "quit",
+                      "task#inner#mnu_nav_button(add3)a",
+                      "task#inner#mnu_nav_button(del2)",
+                      "task#inner#mnu_nav_button(search)",
+                      "task#inner#mnu_nav_button(upd1)"
+                    }
+                  ]        
+                ],
+                "properties": {
+                  "rdc_selection_lock": {
+                    "$ref": "#/components/schemas/rdc_selection_lock"
+                  },
+                  "select": {
+                    "$ref": "#/components/schemas/select"
+                  },
+                  "session_name": {
+                    "$ref": "#/components/schemas/session_name"
+                  },
+                  "csrf_id": {
+                    "$ref": "#/components/schemas/csrf_id"
+                  },
+                  "quicksearch_field": {
+                    "$ref": "#/components/schemas/quicksearch_field"
+                  },
+                  "quicksearch_value": {
+                    "$ref": "#/components/schemas/quicksearch_value"
+                  },
+                  "quicksearch": {
+                    "$ref": "#/components/schemas/quicksearch"
+                  },
+                  "reset": {
+                    "$ref": "#/components/schemas/reset"
+                  },
+                  "quit": {
+                    "$ref": "#/components/schemas/quitClose"
+                  },
+                  "task#inner#mnu_nav_button(add3)a": {
+                    "type": "string",            
+                    "description": "instruction to navigate to New"
+                  },
+                  "task#inner#mnu_nav_button(del2)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Delete"
+                  },
+                  "task#inner#mnu_nav_button(search)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Search"
+                  },
+                  "task#inner#mnu_nav_button(upd1)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Update"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response containing the current form after resetting it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar",
+                    "params"         
+                  ],
+                  "items": {               
+                    "$ref": "#/paths/menu~1mnu_nav_button(list2)a.php/get/responses/200/content/application~1json/schema/items",
+                    "errmsg": {
+                      "line": {
+                        "enum": [
+                          "No entries found on MNU_NAV_BUTTON"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found. Redirect to URL for displaying the previous form (if any), re-displaying the current form, or displaying the next form (if any).",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(list2)a.php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar", 
+                        "pagination", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "./GMXAuto_task.json#/paths/menu~1mnu_task(list1).php.php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",             
+                        "actbar",
+                        "menubar",
+                        "pagination",                   
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(list2)a.php/get/responses/200/content/application~1json/schema/items",
+                        "errmsg": {
+                          "line": {
+                            "enum": [
+                              "No entries found on MNU_NAV_BUTTON",
+                              "No parent has been selected yet",
+                              "Nothing has been selected yet",
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^Primary key (^.{1,64}$) is not complete - check selection\\.$",
+                                    "example": "Primary key (column_id) is not complete - check selection"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(add3)a.php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(del2).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    }
+                  ]
+                }          
+              }
+            }
+          }
+        }        
+      }  
+    },
+    "/menu/mnu_nav_button(multi2).php": {
+      "get": {
+        "summary": "Maintain Navigation Buttons (1)",
+        "description": "Maintain Navigation Buttons (1) records from the Geoprise GM-X Auto ERP Application.",
+        "operationId": "mnu_nav_button(multi2)_getForm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/selection"  
+          },
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          },
+          {
+            "$ref": "#/components/parameters/action" 
+          },
+          {
+            "$ref": "#/components/parameters/scrolling" 
+          },
+          {
+            "$ref": "#/components/parameters/item" 
+          },
+          {
+            "$ref": "#/components/parameters/pagesize" 
+          },
+          {
+            "$ref": "#/components/parameters/pagination" 
+          },
+          {
+            "$ref": "#/components/parameters/page"  
+          },
+          {
+            "name": "orderby",  
+            "in": "query",  
+            "description": "instruction to order the rows the query returns by the values of a specific column, excluding selectbox and NOSORT columns (toggling between ascending and descending sequence)",  
+            "schema": {
+              "type": "string",  
+              "enum": [
+                {
+                  "$ref": "#/paths/menu~1mnu_nav_button(multi2).php/get/responses/200/content/application~1json/schema/items/mnu_task_snr/items/properties/mnu_nav_button"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the Maintain Navigation Buttons (1) form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_task_snr",
+                    "actbar": [
+                      "submitBtn",
+                      "submitnext",
+                      "reset",
+                      "quit"
+                    ],
+                    "menubar",
+                    "pagination",
+                    "params"
+                  ],
+                  "items": {
+                    "mnu_task_snr": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__outer__task_id": {
+                            "type": "string",
+                            "description": "Task"
+                          },
+                          "__outer__task_name": {
+                            "type": "string",
+                            "description": "Name"
+                          },
+                          "rdc_selection_lock": {
+                            "$ref": "#/components/schemas/rdc_selection_lock"
+                          },
+                          "mnu_nav_button": {
+                            [
+                              {
+                                "selectbox": {
+                                  "$ref": "#/components/schemas/select/additionalProperties",
+                                  "description": "Select"
+                                },
+                                "task_name_jnr": {
+                                  "type": "string",
+                                  "description": "Name",
+                                  "size": "80",
+                                  "required": "y",
+                                  "error": {
+                                    "$ref": "#/components/schemas/error"
+                                  }
+                                },
+                                "sort_seq": {
+                                  "type": "string",
+                                  "description": "Seq",
+                                  "size": "3",
+                                  "required": "y",
+                                  "error": {
+                                    "$ref": "#/components/schemas/error"
+                                  }
+                                },
+                                "context_preselect": {
+                                  "type": "string",
+                                  "description": "Preselect?",
+                                  "required": "y",
+                                  "control": "radio",
+                                  "error": {
+                                    "$ref": "#/components/schemas/error"
+                                  }
+                                },
+                                "button_text": {
+                                  "type": "string",
+                                  "description": "Button Text",
+                                  "size": "40",
+                                  "required": "y",
+                                  "error": {
+                                    "$ref": "#/components/schemas/error"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "lookup": [
+                      {
+                        "context_preselect": {
+                          "option": [
+                            {
+                              "$ref": "#/components/schemas/LookupOption"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "actbar": {
+                      "button": [
+                        {
+                          "@attributes": {
+                            "id": "submitBtn",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and returns to previous screen"
+                          },
+                          "@value": "SUBMIT"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "submitnext",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and either displays the next available record, if any, or returns to the previous screen"
+                          },
+                          "@value": "SUBMIT+next"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "reset",
+                            "tooltip": "Removes all your search filters, sorting and page settings and displays a fresh copy of this screen"
+                          },
+                          "@value": "RESET"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "quit",
+                            "tooltip": "Returns to previous screen"
+                          },
+                          "@value": "CLOSE"
+                        }
+                      ]
+                    },
+                    "menubar": {
+                      "$ref": "#/components/schemas/MenuBar"
+                    },
+                    "navbar": {
+                      "$ref": "#/components/schemas/NavBar"
+                    },             
+                    "scrolling": {
+                      "scroll": {
+                        "$ref": "#/components/schemas/Item"
+                      }
+                    },
+                    "pagination": {
+                      "page": {
+                        "$ref": "#/components/schemas/Page"
+                      }
+                    },
+                    "params": {
+                      "script": {
+                        "$ref": "#/components/schemas/ScriptURL"                           
+                      },
+                      "script_short": "mnu_nav_button_multi2",
+                      "session_name": {
+                        "$ref": "#/components/parameters/session_name"                         
+                      },
+                      "csrf_id": {
+                        "$ref": "#/components/parameters/csrf_id"                          
+                      },                 
+                      "title": "Maintain Navigation Buttons (1)",
+                      "version": "GM-X v11.3.0",
+                      "language": "en",
+                      "project_code": {
+                        "$ref": "#/components/schemas/ProjectCode"                         
+                      },
+                      "image-dir": "../images/",
+                      "pagination_width": {
+                        "$ref": "#/components/schemas/PaginationWidth"                         
+                      },
+                      "scrolling_width": {
+                        "$ref": "#/components/schemas/ScrollingWidth"                          
+                      },
+                      "logged-in-as": {
+                        "$ref": "#/components/schemas/LoggedInAs"                          
+                      },
+                      "logged-in-as-name": {
+                        "$ref": "#/components/schemas/LoggedInAsName"                          
+                      },
+                      "mode": "update",
+                      "taskid": "mnu_nav_button(multi2)",
+                      "orderby": {
+                        "type": "string",
+                        "description": "the column by which records are sorted",
+                        "enum": [
+                          {
+                            "$ref": "#/paths/menu~1mnu_nav_button(multi2).php/get/responses/200/content/application~1json/schema/items/mnu_task_snr/items/properties/mnu_nav_button"
+                          }        
+                        ]        
+                      },                     
+                      "order": {
+                        "$ref": "#/components/schemas/order"             
+                      }                  
+                    }
+                  }                    
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "summary": "Action bar or navigation bar submission",
+        "description": "Reset form, close form, or navigate to a different form.",
+        "operationId": "mnu_nav_button(multi2)_submitForm",       
+        "requestBody": {
+          "description": "Instructions and information needed to process the action bar or navigation bar submission",
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "session_name",
+                  "csrf_id",
+                  "oneOf": [
+                    "submitBtn",
+                    "submitnext",
+                    "reset",
+                    "quit",
+                    "task#inner#mnu_nav_button(add3)",
+                    "task#inner#mnu_nav_button(del2)"
+                  ]
+                ],
+                "properties": {
+                  "rdc_selection_lock": {
+                    "$ref": "#/components/schemas/rdc_selection_lock"
+                  },
+                  "select": {
+                    "$ref": "#/components/schemas/select"
+                  },
+                  "session_name": {
+                    "$ref": "#/components/schemas/session_name"
+                  },
+                  "csrf_id": {
+                    "$ref": "#/components/schemas/csrf_id"
+                  },
+                  "task_name_jnr": [
+                    {
+                      "$ref": "#/components/schemas/InnerData"
+                    }
+                  ],
+                  "sort_seq": [
+                    {
+                      "$ref": "#/components/schemas/InnerData"
+                    }
+                  ],
+                  "context_preselect": [
+                    {
+                      "$ref": "#/components/schemas/InnerData"
+                    }
+                  ],
+                  "button_text": [
+                    {
+                      "$ref": "#/components/schemas/InnerData"
+                    }
+                  ],
+                  "submitBtn": {
+                    "$ref": "#/components/schemas/submitBtn"
+                  },
+                  "submitnext": {
+                    "$ref": "#/components/schemas/submitnext"
+                  },
+                  "reset": {
+                    "$ref": "#/components/schemas/reset"
+                  },
+                  "quit": {
+                    "$ref": "#/components/schemas/quitClose"
+                  },
+                  "task#inner#mnu_nav_button(add3)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to New"
+                  },
+                  "task#inner#mnu_nav_button(del2)": {
+                    "type": "string",            
+                    "description": "instruction to navigate to Delete"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response containing the current form after using SUBMIT or RESET.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar",
+                    "params"         
+                  ],
+                  "items": {               
+                    "$ref": "#/paths/menu~1mnu_nav_button(multi2).php/get/responses/200/content/application~1json/schema/items",
+                    "infomsg": {
+                      "line": {
+                        "enum": [
+                          "1 records were updated in MNU_NAV_BUTTON",
+                          {
+                            "$ref": "#/components/schemas/infomsg"
+                          }
+                        ]
+                      }
+                    },
+                    "errmsg": {
+                      "line": {
+                        "enum": [
+                          {
+                            "$ref": "#/components/schemas/errmsg"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found. Redirect to URL for displaying the previous form (if any), re-displaying the current form, or displaying the next form (if any).",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(multi2).php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar", 
+                        "pagination", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "./GMXAuto_task.json#/paths/menu~1mnu_task(list1).php.php/get/responses/200/content/application~1json/schema/items",
+                        "infomsg": {
+                          "line": {
+                            "enum": [
+                              "1 records were updated in MNU_NAV_BUTTON",
+                              {
+                                "$ref": "#/components/schemas/infomsg"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",             
+                        "actbar",
+                        "menubar",
+                        "pagination",                   
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(multi2).php/get/responses/200/content/application~1json/schema/items",
+                        "infomsg": {
+                          "line": {
+                            "enum": [
+                              "1 records were updated in MNU_NAV_BUTTON",
+                              {
+                                "$ref": "#/components/schemas/infomsg"
+                              }
+                            ]
+                          }
+                        },
+                        "errmsg": {
+                          "line": {
+                            "enum": [
+                              {
+                                "$ref": "#/components/schemas/errmsg"
+                              },
+                              "No entries found on MNU_NAV_BUTTON",
+                              "No parent has been selected yet",
+                              "Nothing has been selected yet",
+                              {
+                                "type",
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "pattern": "^Primary key (^.{1,64}$) is not complete - check selection\\.$",
+                                    "example": "Primary key (column_id) is not complete - check selection"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(add3).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "nav_button",               
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(del2).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    }
+                  ]
+                }          
+              }
+            }
+          }
+        }        
+      }  
+    },
+    "/menu/mnu_nav_button(search).php": {
+      "get": {
+        "summary": "Search Navigation Button",
+        "description": "Search Navigation Button records from the Geoprise GM-X Auto ERP Application.",
+        "operationId": "mnu_nav_button(search)_getForm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          },
+          {
+            "$ref": "#/components/parameters/action" 
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the Search Navigation Button form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar", 
+                    "params"         
+                  ],
+                  "items": {
+                    "mnu_nav_button": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "task_id_snr": {
+                            "type": "string",
+                            "description": "Parent Task",
+                            "size": "80",
+                            "pkey": "y",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "task_name_snr": {
+                            "type": "string",
+                            "description": "Parent Name",
+                            "size": "80",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "task_id_jnr": {
+                            "type": "string",
+                            "description": "Button Id",
+                            "size": "80",
+                            "pkey": "y",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "task_name_jnr": {
+                            "type": "string",
+                            "description": "Task Name",
+                            "size": "80",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "sort_seq": {
+                            "type": "string",
+                            "description": "Sort Sequence",
+                            "size": "3",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "button_text": {
+                            "type": "string",
+                            "description": "Button Text",
+                            "size": "40",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "context_preselect": {
+                            "type": "string",
+                            "description": "Preselect?",
+                            "control": "radio",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lookup": [
+                      {
+                        "context_preselect": {
+                          "option": [
+                            {
+                              "$ref": "#/components/schemas/LookupOption"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "actbar": {
+                      "button": [
+                        {
+                          "@attributes": {
+                            "id": "submitBtn",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and returns to previous screen"
+                          },
+                          "@value": "SUBMIT"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "clear",
+                            "tooltip": "Removes all your search filters"
+                          },
+                          "@value": "CLEAR"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "quit",
+                            "tooltip": "Returns to previous screen"
+                          },
+                          "@value": "CANCEL"
+                        }
+                      ]
+                    },
+                    "menubar": {
+                      "$ref": "#/components/schemas/MenuBar"
+                    },
+                    "navbar": {
+                      "$ref": "#/components/schemas/NavBar"
+                    },             
+                    "params": {
+                      "script": {
+                        "$ref": "#/components/schemas/ScriptURL"                           
+                      },
+                      "script_short": "mnu_nav_button_search",
+                      "session_name": {
+                        "$ref": "#/components/parameters/session_name"                         
+                      },
+                      "csrf_id": {
+                        "$ref": "#/components/parameters/csrf_id"                          
+                      },                 
+                      "title": "Search Navigation Button",
+                      "version": "GM-X v11.3.0",
+                      "language": "en",
+                      "project_code": {
+                        "$ref": "#/components/schemas/ProjectCode"                         
+                      },
+                      "image-dir": "../images/",
+                      "pagination_width": {
+                        "$ref": "#/components/schemas/PaginationWidth"                         
+                      },
+                      "scrolling_width": {
+                        "$ref": "#/components/schemas/ScrollingWidth"                          
+                      },
+                      "logged-in-as": {
+                        "$ref": "#/components/schemas/LoggedInAs"                          
+                      },
+                      "logged-in-as-name": {
+                        "$ref": "#/components/schemas/LoggedInAsName"                          
+                      },
+                      "mode": "search",
+                      "taskid": "mnu_nav_button(search)"
+                    }
+                  }                    
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "summary": "Action bar or navigation bar submission",
+        "description": "Search for records according to critera shown in the current form, clear the search criteria, close the form, or navigate to a different form.",
+        "operationId": "mnu_nav_button(search)_submitForm",       
+        "requestBody": {
+          "description": "Instructions and information needed to process the action bar or navigation bar submission",
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "session_name",
+                  "csrf_id",
+                  "oneOf": [
+                    {
+                      "submitBtn",                      
+                      "clear",                      
+                      "quit"
+                    }                    
+                  ]        
+                ],
+                "properties": {
+                  "session_name": {
+                    "$ref": "#/components/schemas/session_name"
+                  },
+                  "csrf_id": {
+                    "$ref": "#/components/schemas/csrf_id"
+                  },
+                  "task_id_snr": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/task_id_snr"
+                  },
+                  "task_name_snr": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/task_name_snr"
+                  },
+                  "task_id_jnr": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/task_id_jnr"
+                  },
+                  "task_name_jnr": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/task_name_jnr"
+                  },
+                  "sort_seq": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/sort_seq"
+                  },
+                  "button_text": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/button_text"
+                  },
+                  "context_preselect": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/context_preselect"
+                  },
+                  "submitBtn": {
+                    "$ref": "#/components/schemas/submitBtn"
+                  },
+                  "clear": {
+                    "$ref": "#/components/schemas/clear"
+                  },
+                  "quit": {
+                    "$ref": "#/components/schemas/quitClose"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response containing the current form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar",
+                    "params"         
+                  ],
+                  "items": {               
+                    "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items",
+                    "errmsg": {
+                      "line": {
+                        "enum": [
+                          {
+                            "$ref": "#/components/schemas/errmsg"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found. Redirect to URL for displaying the previous form (if any), re-displaying the current form, or displaying the next form (if any).",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(search).php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar",
+                        "params"
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(search).php/get/responses/200/content/application~1json/schema/items",
+                        "infomsg": {
+                          "line": {
+                            "enum": [
+                              "Nothing was found matching this profile"           
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }          
+              }
+            }
+          }
+        }        
+      }  
+    },
+    "/menu/mnu_nav_button(upd1).php": {
+      "get": {
+        "summary": "Update Navigation Button",
+        "description": "Update Navigation Button record into the Geoprise GM-X Auto ERP Application database.",
+        "operationId": "mnu_nav_button(upd1)_getForm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/csrf_id"  
+          },
+          {
+            "$ref": "#/components/parameters/session_name" 
+          },
+          {
+            "$ref": "#/components/parameters/action" 
+          },
+          {
+            "$ref": "#/components/parameters/item" 
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the Update Navigation Button form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar", 
+                    "params"         
+                  ],
+                  "items": {
+                    "mnu_nav_button": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "task_name_snr": {
+                            "type": "string",
+                            "description": "Parent Name",
+                            "size": "80",
+                            "required": "y",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "task_name_jnr": {
+                            "type": "string",
+                            "description": "Task Name",
+                            "size": "80",
+                            "required": "y",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "sort_seq": {
+                            "type": "string",
+                            "description": "Sort Sequence",
+                            "size": "3",
+                            "required": "y",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "button_text": {
+                            "type": "string",
+                            "description": "Button Text",
+                            "size": "40",
+                            "required": "y",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          },
+                          "context_preselect": {
+                            "type": "string",
+                            "description": "Preselect?",
+                            "required": "y",
+                            "control": "radio",
+                            "error": {
+                              "$ref": "#/components/schemas/error"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lookup": [
+                      {
+                        "context_preselect": {
+                          "option": [
+                            {
+                              "$ref": "#/components/schemas/LookupOption"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "actbar": {
+                      "button": [
+                        {
+                          "@attributes": {
+                            "id": "submitBtn",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and returns to previous screen"
+                          },
+                          "@value": "SUBMIT"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "submitnext",
+                            "tooltip": "Verifies your entries and displays any errors, or saves your entries and either displays the next available record, if any, or returns to the previous screen"
+                          },
+                          "@value": "SUBMIT+next"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "paste",
+                            "tooltip": "Pastes the data from COPY into this screen"
+                          },
+                          "@value": "Paste"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "copy",
+                            "tooltip": "Copies the data on this screen for use with PASTE"
+                          },
+                          "@value": "COPY"
+                        },
+                        {
+                          "@attributes": {
+                            "id": "quit",
+                            "tooltip": "Returns to previous screen"
+                          },
+                          "@value": "CANCEL"
+                        }
+                      ]
+                    },
+                    "menubar": {
+                      "$ref": "#/components/schemas/MenuBar"
+                    },
+                    "navbar": {
+                      "$ref": "#/components/schemas/NavBar"
+                    },             
+                    "scrolling": {
+                      "scroll": {
+                        "$ref": "#/components/schemas/Item"
+                      }
+                    },
+                    "params": {
+                      "script": {
+                        "$ref": "#/components/schemas/ScriptURL"                           
+                      },
+                      "script_short": "mnu_nav_button_upd1",
+                      "session_name": {
+                        "$ref": "#/components/parameters/session_name"                         
+                      },
+                      "csrf_id": {
+                        "$ref": "#/components/parameters/csrf_id"                          
+                      },                 
+                      "title": "Update Navigation Button",
+                      "version": "GM-X v11.3.0",
+                      "language": "en",
+                      "project_code": {
+                        "$ref": "#/components/schemas/ProjectCode"                         
+                      },
+                      "image-dir": "../images/",
+                      "pagination_width": {
+                        "$ref": "#/components/schemas/PaginationWidth"                         
+                      },
+                      "scrolling_width": {
+                        "$ref": "#/components/schemas/ScrollingWidth"                          
+                      },
+                      "logged-in-as": {
+                        "$ref": "#/components/schemas/LoggedInAs"                          
+                      },
+                      "logged-in-as-name": {
+                        "$ref": "#/components/schemas/LoggedInAsName"                          
+                      },
+                      "mode": "update",
+                      "taskid": "mnu_nav_button(upd1)",
+                      "orderby": {
+                        "type": "string",
+                        "description": "the column by which records are sorted",
+                        "enum": [
+                          {
+                            "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties"
+                          }
+                        ]
+                      },                     
+                      "order": {
+                        "$ref": "#/components/schemas/order"             
+                      }
+                    }
+                  }                    
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "summary": "Action bar or navigation bar submission",
+        "description": "Update record with data in the current form, copy form, paste data copied from different form into current form, close form, or navigate to a different form.",
+        "operationId": "mnu_nav_button(upd1)_submitForm",       
+        "requestBody": {
+          "description": "Instructions and information needed to process the action bar or navigation bar submission",
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "session_name",
+                  "csrf_id",
+                  "oneOf": [
+                    {
+                      "submitBtn",                      
+                      "submitnext",                      
+                      "paste",                      
+                      "copy",                      
+                      "quit"
+                    }                    
+                  ]        
+                ],
+                "properties": {
+                  "session_name": {
+                    "$ref": "#/components/schemas/session_name"
+                  },
+                  "csrf_id": {
+                    "$ref": "#/components/schemas/csrf_id"
+                  },
+                  "task_name_snr": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/task_name_snr"
+                  },
+                  "task_name_jnr": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/task_name_jnr"
+                  },
+                  "sort_seq": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/sort_seq"
+                  },
+                  "button_text": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/button_text"
+                  },
+                  "context_preselect": {
+                    "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items/mnu_nav_button/items/properties/context_preselect"
+                  },
+                  "submitBtn": {
+                    "$ref": "#/components/schemas/submitBtn"
+                  },
+                  "submitnext": {
+                    "$ref": "#/components/schemas/submitnext"
+                  },
+                  "paste": {
+                    "$ref": "#/components/schemas/paste"
+                  },
+                  "copy": {
+                    "$ref": "#/components/schemas/copy"
+                  },
+                  "quit": {
+                    "$ref": "#/components/schemas/quitClose"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A successful response containing the current form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "mnu_nav_button",
+                    "actbar",
+                    "menubar",
+                    "params"         
+                  ],
+                  "items": {               
+                    "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items",
+                    "infomsg": {
+                      "line": {
+                        "enum": [
+                          "Data has been copied"
+                        ]
+                      }
+                    },
+                    "errmsg": {
+                      "line": {
+                        "enum": [
+                          {
+                            "$ref": "#/components/schemas/errmsg"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found. Redirect to URL for displaying the previous form (if any), re-displaying the current form, or displaying the next form (if any).",
+            "headers": {
+              "Location": {
+                "description": "The target URL for the redirect.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://api.example.com/gmx/menu/mnu_nav_button(upd1).php"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar", 
+                        "params"         
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(list2).php/get/responses/200/content/application~1json/schema/items",
+                        "infomsg": {
+                          "line": {
+                            "enum": [
+                              "1 records were updated in MNU_NAV_BUTTON"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "mnu_nav_button",
+                        "actbar",
+                        "menubar",
+                        "params"
+                      ],
+                      "items": {               
+                        "$ref": "#/paths/menu~1mnu_nav_button(upd1).php/get/responses/200/content/application~1json/schema/items",
+                        "infomsg": {
+                          "line": {
+                            "enum": [
+                              "1 records were updated in MNU_NAV_BUTTON"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }        
+      }  
+    },
+    "/menu/help.php": {
+      "get": {
+        "summary": "Help request",
+        "description": "Request Help text from the Geoprise GM-X Auto ERP Application.",
+        "operationId": "help",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/session_name"
+          },
+          {
+            "$ref": "#/components/parameters/taskid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response containing the Help text.",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "description": "The raw HTML content of the page containing the Help text",
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    "AWSELBAuth": {
+      "$ref": "#/components/securitySchemes/AWSELBAuth"
+    },
+    "sessionAuth": {
+      "$ref": "#/components/securitySchemes/sessionAuth"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "callingTask": {
+        "type": "object",	
+        "description": "The task from which the popup task was called",		
+        "examples": {			
+          "type": "object",
+          "required": [
+            "alert",
+            "actbar",
+            "menubar",
+            "params"
+          ],
+          "items": {
+            "$ref": "./GMXAuto_asset.json#/paths/finance-fa~1asset(upd1).php/get/responses/200/content/application~1json/schema/items",
+            "errmsg": {
+              "line": {
+                "enum": [
+                  "Nothing selected from popup screen."           
+                ]
+              }
+            }
+          }
+        }		
+      },
+      "choose": {
+        "type": "string",			    
+        "description": "instruction to return any selection (or multiple selections, if allowed) to previous form",
+        "pattern": "^CHOOSE$"
+      },
+      "choosenull": {
+        "type": "string",			    
+        "description": "instruction to return no selections to previous form",
+        "pattern": "^CHOOSE NULL$"
+      },
+      "clear": {
+        "type": "string",			    
+        "description": "instruction to remove all search criteria",
+        "pattern": "^CLEAR$"
+      },
+      "collapse": {
+        "type": "string",			    
+        "description": "instruction to hide all the branches and leaves of the tree",
+        "pattern": "^COLLAPSE$"
+      },
+      "copy": {
+        "type": "string",			    
+        "description": "instruction to copy the values of all form fields for pasting into a different instance of the same form",
+        "pattern": "^COPY$"
+      },	
+      "created_date": {
+        "type": "string",			    
+        "description": "the date and time on which the record was created",
+        "example": "04 Aug 2026 02:21:56"
+      },
+      "created_user": {
+        "type": "string",			    
+        "description": "the identity of the user which created the record",
+        "example": "DLEE"
+      },	
+      "csrf_id": {
+        "type": "string",			    
+        "description": "unique request verification value for Cross-Site Request Forgery (CSRF) protection",
+        "minLength": 23,
+        "maxLength": 23,
+        "pattern": "^[0-9a-fA-F]{14}\\.[0-9]{8}$"
+      },
+      "delete": {
+        "type": "string",			    
+        "description": "instruction to delete the record in the current form from the database",
+        "pattern": "^DELETE$"
+      },
+      "error": {
+        "type": "string",			    
+        "description": "error encountered during validation of data submitted for a specific form field (if any)",
+        "example": "column_id cannot be blank."
+      },
+      "errmsg": {
+        "type": "string",			    
+        "description": "error encountered during validation or processing of entire form (if any)",
+        "example": "This action is not allowed."
+      },
+      "expand": {
+        "type": "string",			    
+        "description": "instruction to show all the branches and leaves of the tree",
+        "pattern": "^EXPAND$"
+      },
+      "infomsg": {
+        "type": "string",			    
+        "description": "short description of successful processing outcome",
+        "example": "The payment amount matches the document balances - payment is complete"
+      },
+      "InnerData": {
+        "type": "object",
+        "description": "A one-indexed collection of data for inner zone of the form. Keys begin with the column name, followed by a row number suffix enclosed in square braces (\"[\" and \"]\") which must be string representations of positive integers starting at \"1\". $ref: #/components/schema/Page/properties/numrows and $ref: #/components/schema/Page/properties/lastpage define the maximum row number from the following formula: maximum = IF (numrows / lastpage > 50 then 100 ELSE IF (numrows / lastpage > 25 then 50 ELSE IF (numrows / lastpage > 10 then 25 ELSE 10)))",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]{1,64}\\[(?:[1-9][0-9]?|100)\\]$"
+        },    
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "document_reference[1]": "6654397LT9TBF5Q7F",		  
+          "account_id[1]": "1.234.00",
+          "debit_functional[1]": "998.72",
+          "credit_functional[1]": "",
+          "document_reference[2]": "6654397LT9TBF5Q7F",		  
+          "account_id[2]": "2.421.02",
+          "debit_functional[2]": "",
+          "credit_functional[2]": "998.72"
+        }
+      },
+      "InnerDataNoLimit": {
+        "type": "object",
+        "description": "A one-indexed collection of data for inner zone of the form. Keys begin with the column name, followed by a row number suffix enclosed in square braces (\"[\" and \"]\") which must be string representations of positive integers starting at \"1\".",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]{1,64}\\[[1-9][0-9]*\\]$"
+        },    
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "sort_seq[1]": "2",		  
+          "output_name[1]": "Order Id",
+          "sort_seq[2]": "",		  
+          "output_name[2]": "",
+          "sort_seq[3]": "3",		  
+          "output_name[3]": "Ship Country Id"
+        }
+      },
+      "InnerTasks": {
+        "type": "object",
+        "description": "A one-indexed collection of popup tasks for inner zone of the form. Keys begin with the task ID (prefixed by \"#task#inner#\"), followed by a row number suffix enclosed in square braces (\"[\" and \"]\") which must be string representations of positive integers starting at \"1\". $ref: #/components/schema/Page/properties/numrows and $ref: #/components/schema/Page/properties/lastpage define the maximum row number from the following formula: maximum = IF (numrows / lastpage > 50 then 100 ELSE IF (numrows / lastpage > 25 then 50 ELSE IF (numrows / lastpage > 10 then 25 ELSE 10)))",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]{1,64}\\[(?:[1-9][0-9]?|100)\\]$"
+        },    
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "task#inner#fgl_gl_account(popup4)[3]": "Choose GL Account"		  
+        }
+      },
+      "Item": {
+        "type": "object",
+        "required": [
+          "id",
+          "curitem",		    
+          "lastitem"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "journal_entry_status_type"
+          },
+          "curitem": {
+            "type": "integer",
+            "description": "current scrolling item",
+            "format": "int32",
+            "minimum": 1,
+            "example": "1"	
+            },		    
+          "lastitem": {
+            "type": "integer",
+            "description": "total number of rows returned by the query",
+            "format": "int32",
+            "minimum": 1,
+            "example": "1"	
+          }
+        }		    
+      },
+      "LoggedInAs": {
+        "type": "string",
+        "description": "user name and last GET request timestamp, for desktop display",
+        "example": "Derek Lee [04 Aug 2026 02:21:56 GMT -07:00]"		    
+      },	
+      "LoggedInAsName": {
+        "type": "string",
+         "description": "user name without last GET request timestamp, for mobile display",
+        "example": "Derek Lee"		    
+      },
+      "LookupOption": {
+        "type": "object",
+        "required": [
+          "key"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "value within an option list",
+            "example": {
+              "": "null",
+              "column_id": "Column Id"
+            }
+          }
+        }	
+      },
+      "MenuBar": {
+        "type": "object",
+        "required": [
+          "button",
+          "stack"
+        ],
+        "properties": {
+          "button": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "csrf_id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "task ID",
+                  "example": "pro_product(list1)"
+                },
+                "csrf_id": {
+                  "$ref": "#/components/schemas/csrf_id"
+                },
+                "active": {
+                  "type": "string",
+                  "description": "indicates if the menu button can currently be used to send a GET request to the GM-X server",				
+                  "example": "y"
+                }
+              }
+            }
+          },
+          "stack": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "task ID",				
+                  "example": "business_processes"
+                },
+                "csrf_id": {
+                  "$ref": "#/components/schemas/csrf_id"
+                },
+                "active": {
+                  "type": "string",
+                  "description": "indicates if the breadcrumb link can currently be used to send a GET request to the GM-X server",					
+                  "example": "y"
+                }
+              }
+            }
+          }
+        }
+      },	
+      "NavBar": {
+          "type": "object",
+          "required": [
+            "button"
+          ],
+          "properties": {
+            "button": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "context_preselect",			    
+                  "tooltip"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "'task#', followed by zone ID, followed by '#', followed by task ID",
+                    "example": "task#main#pro_product(upd1)"
+                  },
+                  "context_preselect": {
+                    "type": "string",
+                    "description": "indicates if an item must be selected from the list (Y) before activating the button, or not (N)",				
+                    "enum": [
+                      "N",
+                      "Y"
+                    ]
+                  },
+                  "tooltip": {
+                    "type": "string",
+                    "description": "task name",				
+                    "example": "Update Product"
+                  }
+                }
+              }
+            }
+          }
+      },
+      "order": {
+        "type": "string",
+        "description": "record sorting sequence (ascending or descending)",
+        "enum": [
+          "asc",
+          "desc"					    
+        ]		    
+      },
+      "OuterData": {
+        "type": "object",
+        "description": "A one-indexed collection of data for outer zone of the form. Keys prefixed by \"__outer__\", followed by the column name",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^__outer__[a-z0-9_]{0,64}$"
+        },    
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "__outer__transaction_date": "24 Aug 2026",		  
+          "__outer__journal_desc": "Subsidiary expenses paid by corporate parent",
+          "__outer__uom_id_statistic": ""
+        }
+      },	  
+      "Page": {
+        "type": "object",
+        "required": [
+          "id",
+          "numrows",
+          "curpage",		    
+          "lastpage"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "inner",
+              "link",
+              "main",
+              "middle",
+              "middle1",
+              "middle2",
+              "mnu_todo",
+              "outer",
+              "workitem_role",
+              "workitem_user"
+            ],
+            "example": "main"
+          },
+          "numrows": {
+            "type": "integer",
+            "description": "total number of rows returned by the query",
+            "format": "int32",
+            "minimum": 0,
+            "example": "68"			
+          },
+          "curpage": {
+            "type": "integer",
+            "description": "total number of rows returned by the query",
+            "format": "int32",
+            "minimum": 0,
+            "example": "1"	
+          },		    
+          "lastpage": {
+            "type": "integer",
+            "description": "total number of pages returned by the query (at maximum of 10, 25, 50, or 100 rows per page)",
+            "format": "int32",
+            "minimum": 0,
+            "example": "7"	
+          }
+        }		    
+      },
+      "PaginationWidth": {
+        "type": "integer",
+        "description": "defines how the pagination area is displayed; default display if zero, Google style display otherwise",
+        "format": "int32",
+        "minimum": 0,
+        "example": "7"		    
+      },
+      "paste": {
+        "type": "string",			    
+        "description": "instruction to paste the values of all form fields copied from a different instance of the same form; required when values of form fields have been copied from a different instance",
+        "pattern": "^Paste$"
+      },
+      "ProjectCode": {
+        "type": "string",
+        "description": "customisation project code for this server instance",
+        "example": "gmx"			
+      },
+      "quicksearch": {
+        "type": "string",			    
+        "description": "instruction to query the records using the quicksearch criterion, and then re-display current form",
+        "pattern": "^Quick Search$"
+      },
+      "QuicksearchOption": {
+        "type": "object",
+        "required": [
+          "key"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "column available for quicksearch criterion",
+            "example": {
+              "": "null",
+              "column_id": "Column Id"
+            }
+          }
+        }	
+      },
+      "quicksearch_field": {
+        "type": "string",			    
+        "description": "column for quicksearch criterion",
+        "option": [
+          {
+            "$ref": "#components/schemas/QuicksearchOption"
+          }					  
+         ]
+      },
+      "quicksearch_value": {
+        "type": "string",			    
+        "description": "quicksearch criterion",		  
+        "maxLength": 20,
+        "pattern": "^.{0,20}$"
+      },	  
+      "quitCancel": {
+        "type": "string",			    
+        "description": "instruction to return to previous form",
+        "pattern": "^CANCEL$"
+      },
+      "quitClose": {
+        "type": "string",			    
+        "description": "instruction to return to previous form",
+        "pattern": "^CLOSE$"
+      },
+      "rdc_selection_lock": {
+        "type": "integer",
+        "description": "instruction to lock selected record(s) to re-select them automatically when returning to current form",
+        "format": "int32",
+        "minimum": 0,
+        "maximum": 1,	    
+        "example": "0",
+        "default": 0
+      },
+      "reset": {
+        "type": "string",			    
+        "description": "instruction to remove all search criteria, sorting, and page settings, and then re-display current form",
+        "pattern": "^RESET$"
+      },	  
+      "revised_date": {
+        "type": "string",			    
+        "description": "the date and time on which the record was last updated",
+        "example": "04 Aug 2026 02:21:56"
+      },
+      "revised_user": {
+        "type": "string",			    
+        "description": "the identity of the user which last updated the record",
+        "example": "DLEE"
+      },
+      "ScriptURL": {
+        "type": "string",
+        "description": "concatenation of URL followed by path"
+      },	    
+      "ScrollingWidth": {
+        "type": "integer",
+        "description": "defines how the scrolling area is displayed; default display if zero, Google style display otherwise",
+        "format": "int32",
+        "minimum": 0,
+        "example": "5"			    
+      },
+      "select": {
+        "type": "object",
+        "description": "A sparse, one-indexed collection indicating selected rows on the form. Keys do not need to be sequential but must be string representations of positive integers starting at \"1\". $ref: #/components/schema/Page/properties/numrows and $ref: #/components/schema/Page/properties/lastpage define the maximum collection size from the following formula: maximum = IF (numrows / lastpage > 50 then 100 ELSE IF (numrows / lastpage > 25 then 50 ELSE IF (numrows / lastpage > 10 then 25 ELSE 10)))",
+        "propertyNames": {
+          "pattern": "^[1-9][0-9]*$",
+          "minimum": "1",
+          "maximum": {
+            "oneOf": [
+              "10",		
+              "25",				    
+              "50",
+              "100"
+            ]			
+          }
+        },    
+        "additionalProperties": {
+          "type": "string",
+          "enum": [
+            "on"
+          ]
+        },
+        "example": {
+          "1": "on",
+          "3": "on",
+          "19": "on",
+          "47": "on",
+          "78": "on"
+        }
+      },
+      "selectNoLimit": {
+        "type": "object",
+        "description": "A sparse, one-indexed collection indicating selected rows on the form. Keys do not need to be sequential but must be string representations of positive integers starting at \"1\".",
+        "propertyNames": {
+          "pattern": "^[1-9][0-9]*$",
+          "minimum": "1"
+        },    
+        "additionalProperties": {
+          "type": "string",
+          "enum": [
+            "on"
+          ]
+        },
+        "example": {
+          "1": "on",
+          "3": "on",
+          "19": "on",
+          "47": "on",
+          "78": "on"
+        }
+      },
+      "selectOne": {
+        "type": "string",
+        "description": "Indicates the row selected from a popup form that allows only one row to be selected. The selected row number must be a string representation of a positive integer starting at \"1\". $ref: #/components/schema/Page/properties/numrows and $ref: #/components/schema/Page/properties/lastpage define the maximum allowable value from the following formula: maximum = IF (numrows / lastpage > 50 then 100 ELSE IF (numrows / lastpage > 25 then 50 ELSE IF (numrows / lastpage > 10 then 25 ELSE 10)))",
+        "propertyNames": {
+          "pattern": "^[1-9][0-9]*$",
+          "minimum": "1",
+          "maximum": {
+            "oneOf": [
+              "10",		
+              "25",				    
+              "50",
+              "100"
+            ]			
+          }
+        },    
+        "example": [
+          "1",
+          "3",
+          "19",
+          "47",
+          "78"
+        ]
+      },
+      "session_name": {
+        "type": "string",			    
+        "description": "Name of session cookie set by GM-X application server after successful Internal, RADIUS, LDAP, or SSL authentication.",
+        "minLength": 5,
+        "maxLength": 6,
+        "pattern": "^menu\\d{1,2}$"							
+      },
+      "submitBtn": {
+        "type": "string",			    
+        "description": "instruction to process the form and then return to previous form if successful, or re-display current form with error message(s) if unsuccessful",
+        "pattern": "^SUBMIT$"
+      },
+      "submitnext": {
+        "type": "string",			    
+        "description": "instruction to process the form and then scroll to next form (or return to previous form if current form is the last in scrolling sequence) if successful, or re-display current form with error message(s) if unsuccessful",
+        "pattern": "^SUBMIT+next$"
+      },
+      "submitstay": {
+        "type": "string",			    
+        "description": "instruction to process the form and then display a fresh copy of this form if successful, or re-display current form with error message(s) if unsuccessful",
+        "pattern": "^SUBMIT+stay$"
+      },
+      "taskid": {
+        "type": "string",			    
+        "description": "Task associated with request.",
+        "maxLength": 80,
+        "pattern": "^[a-z_()]{1,80}$"							
+      }	
+    },
+    "parameters": {
+      "action": {
+        "name": "action",
+        "in": "query",
+        "description": "instruction to log off, create a new session, or select/unselect all rows of the current page returned by the query (at maximum of 10, 25, 50, or 100 rows per page)",
+        "schema": {
+          "type": "string",
+          "enum": [
+	        "logout",	
+	        "logout_all",
+	        "newsession",		    
+	        "selectall",
+            "unselectall"
+          ]
+        }		    
+      },
+      "collapsed": {
+        "name": "collapsed",
+        "in": "query",
+        "description": "unique identity of a specific tree view node to be collapsed so its branches and leaves are hidden",
+        "schema": {
+          "type": "string",
+          "pattern": "^(.+)#\\1$"
+        }		    
+      },
+      "csrf_id": {
+        "name": "csrf_id",
+        "in": "query",
+        "description": "unique request verification value for Cross-Site Request Forgery (CSRF) protection; required for GET requests using different path",
+        "required": true,	    
+        "schema": {
+          "type": "string",
+          "minLength": 23,
+          "maxLength": 23,
+          "pattern": "^[0-9a-fA-F]{14}\\.[0-9]{8}$"
+        }		    
+      },
+      "expand": {
+        "name": "expand",
+        "in": "query",
+        "description": "unique identity of a specific tree view node to be expanded so its branches and leaves are visible",
+        "schema": {
+          "type": "string",
+          "pattern": "^(.+)#\\1$"
+        }		    
+      },
+      "item": {
+        "name": "item",
+        "in": "query",
+        "description": "instruction to return a specific row returned by a query; required when scrolling parameter exists",
+        "schema": {
+          "type": "integer",
+          "format": "int32",		    
+          "minimum": "1",
+          "maximum": {
+            "$ref": "#/components/schemas/Item/properties/lastitem"	
+          }
+        }		    
+      },	
+      "page": {
+        "name": "page",
+        "in": "query",
+        "description": "instruction to return a specific page of the rows returned by a query; required when pagination parameter exists",
+        "schema": {
+          "type": "integer",
+          "format": "int32",		    
+          "minimum": "1",
+          "maximum": {
+            "$ref": "#/components/schemas/Page/properties/lastpage"	
+          }
+        }		    
+      },
+      "pagesize": {
+        "name": "pagesize",
+        "in": "query",
+        "description": "instruction to return a maximum of 10, 25, 50, or 100 rows per page",
+        "schema": {
+          "type": "integer",
+          "format": "int32",
+          "enum": [
+            "10",
+            "25",
+            "50",			
+            "100"
+          ],
+          "maximum": {
+            "$ref": "#/components/schemas/Page/properties/numrows"				    
+          }		    
+        }		    
+      },
+      "pagination": {
+        "name": "pagination",
+        "in": "query",
+        "description": "applicable zone for a pagination request (e.g. main, outer, inner, middle, middle1, middle2, link); required when page parameter exists",
+        "schema": {
+          "type": "string",			
+          "enum": [
+            {
+              "$ref": "#/components/schemas/Page/properties/id"
+            }
+          ]		    
+        }		    
+      },
+      "scrolling": {
+        "name": "scrolling",
+        "in": "query",
+        "description": "applicable class for a scrolling request; required when scrolling parameter exists",
+        "schema": {
+          "type": "string",
+          "maxLength": 64,		
+          "enum": [
+            {
+              "$ref": "#/components/schemas/Item/properties/id"
+            }
+          ]		    
+        }		    
+      },
+      "selection": {
+        "name": "selection",
+        "in": "query",
+        "description": "task ID selection from menu bar",
+        "schema": {
+          "type": "string",
+          "enum": [
+            {
+              "$ref": "#/components/schemas/Item/properties/taskid"
+            }
+          ]		    
+        }		    
+      },
+      "session_name": {
+        "name": "session_name",
+        "in": "query",
+        "description": "Name of session cookie set by GM-X application server after successful Internal, RADIUS, LDAP, or SSL authentication.",
+        "required": true,
+        "schema" : {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 6,
+          "pattern": "^menu\\d{1,2}$"
+        }		    
+      }, 
+      "taskid": {
+        "name": "taskid",
+        "in": "query",
+        "description": "task associated with request; required when accessing written help",
+        "schema": {
+          "type": "string",			
+          "maxLength": 80,
+          "enum": [
+            {
+              "$ref": "#/components/schemas/taskid"
+            }
+          ]		
+        }		    
+      }
+    },
+    "securitySchemes": {
+      "AWSELBAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "AWSELBAuthSessionCookie-0",
+        "description": "The AWS ALB authentication session cookie. If its size is greater than 4K, and less than 11K, the load balancer shards it into multiple cookies (AWSELBAuthSessionCookie-0, AWSELBAuthSessionCookie-1, etc.)."		
+      },		
+      "sessionAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": {
+          "schema" : {
+            "type": "string",
+            "minLength": 22,
+            "maxLength": 256,
+            "pattern": "^menu\\d{1,2}=(?:[A-Za-z0-9]{22,128}|[0-9a-fA-F]{22,256})$"
+          }		
+        },
+        "description": "The PHP session cookie set by GM-X application server after successful Internal, RADIUS, LDAP, or SSL authentication."
+      }
+    }	
+  }
+}
