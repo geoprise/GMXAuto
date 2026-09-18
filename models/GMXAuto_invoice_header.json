@@ -33930,7 +33930,27 @@
         "description": "Type Description",
         "size": "40",
         "required": "y"
-      }	  
+      },
+      "rdc_limit": {
+        "type": "string",
+        "description": "Maximum number of database rows to retrieve",
+        "required": "y",
+        "errmsg": {
+          "enum": [
+            "[rdc_limit] LIMIT must be a number which is greater than or equal to 1"
+          ]
+        }
+      },
+      "rdc_offset": {
+        "type": "string",
+        "description": "Starting row offset for retrieval result set",
+        "required": "y",
+        "errmsg": {
+          "enum": [
+            "[rdc_offset] OFFSET must be a number which is greater than or equal to 0"
+          ]
+        }
+      }
     },
     "parameters": {
       "action": {
